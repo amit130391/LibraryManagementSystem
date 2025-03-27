@@ -18,7 +18,7 @@ COPY src ./src
 RUN ./mvnw clean package -DskipTests
 
 # Copy the built JAR file to the final image
-COPY target/*.jar app.jar
+COPY target/libraryManagement-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the application port
 EXPOSE 8080
