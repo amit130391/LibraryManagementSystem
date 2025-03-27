@@ -1,4 +1,4 @@
-# Library Management System
+# Digital Library Book Management System
 
 ## 📌 Overview
 This is a **Spring Boot-based Library Management System** that allows librarians to efficiently add, update, search, and remove books while maintaining their availability status. The application uses an **in-memory collection** instead of a database.
@@ -13,7 +13,7 @@ This is a **Spring Boot-based Library Management System** that allows librarians
 
 ## 🛠️ Tech Stack
 - **Java 22**
-- **Spring Boot**
+- **Spring Boot 3.4.4**
 - **Spring MVC**
 - **Validation API** (for input validation)
 
@@ -27,7 +27,7 @@ Ensure you have installed:
 
 ### **2️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/YOUR-USERNAME/library-management.git
+git clone https://github.com/amit130391/LibraryManagementSystem.git
 cd library-management
 ```
 
