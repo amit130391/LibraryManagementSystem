@@ -1,14 +1,27 @@
-# Use a lightweight Java 21 image
-FROM eclipse-temurin:21-jdk-alpine
+# Use Eclipse Temurin (Java 21) as the base image
+FROM eclipse-temurin:21-jdk
 
-# Set the working directory inside the container
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy the project files into the container
-COPY . .
+# Copy Maven wrapper and necessary files
+COPY mvnw pom.xml ./
+COPY .mvn .mvn
 
-# Give execute permission to the Maven wrapper and build the project
-RUN chmod +x mvnw && ./mvnw clean package
+# Give execute permissions to mvnw
+RUN chmod +x mvnw
 
-# Set the command to run the JAR file after building
-CMD ["java", "-jar", "target/*.jar"]
+# Copy source code
+COPY src ./src
+
+# Build the application
+RUN ./mvnw clean package -DskipTests
+
+# Copy the built JAR file to the final image
+COPY target/*.jar app.jar
+
+# Expose the application port
+EXPOSE 8080
+
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
