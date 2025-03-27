@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: LibraryManagementSystem
-    env: java
-    plan: free
-    buildCommand: "./mvnw clean package"
-    startCommand: "java -jar target/*.jar"
