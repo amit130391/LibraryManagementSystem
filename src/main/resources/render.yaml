@@ -1,7 +1,7 @@
 services:
   - type: web
     name: LibraryManagementSystem
-    env: docker
+    env: java
     plan: free
-    buildCommand: "chmod +x mvnw && ./mvnw clean package"
+    buildCommand: "./mvnw clean package"
     startCommand: "java -jar target/*.jar"
